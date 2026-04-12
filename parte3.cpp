@@ -1,18 +1,17 @@
-#include <stdio.h>
-#include <string.h>
-
+#include <iostream>
+#include <string>
+using namespace std;
 int main() {
-    char mensaje[100];   // Variable para almacenar el mensaje a cifrar
-    int desplazamiento;  // Variable para almacenar el número de posiciones a desplazar
-    int i; // Variable de control para el bucle
+    string mensaje;
+    int desplazamiento, i;
+    
+    cout << "Ingrese cualquier mensaje: ";
+    cin >> mensaje;
 
-    printf("Ingrese cualquier mensaje: ");
-    scanf("%s", mensaje);
+    cout << "Ingrese el desplazamiento: ";
+    cin >> desplazamiento;          
 
-    printf("Ingrese el desplazamiento: ");
-    scanf("%d", &desplazamiento);          
-
-    for (i = 0; i < (int)strlen(mensaje); i++) {    // Bucle para recorrer cada carácter del mensaje
+    for (i = 0; i < mensaje.length(); i++) {    // Bucle para recorrer cada carácter del mensaje
         if (mensaje[i] >= 'a' && mensaje[i] <= 'z') {
             mensaje[i] = (mensaje[i] - 'a' + desplazamiento) % 26 + 'a'; // Cifrado para letras minúsculas
         } else if (mensaje[i] >= 'A' && mensaje[i] <= 'Z') {
@@ -22,6 +21,6 @@ int main() {
         }
     }
 
-    printf("El mensaje cifrado es: %s\n", mensaje); // Imprime el mensaje cifrado
+    cout << "El mensaje cifrado es: " << mensaje << endl; // Imprime el mensaje cifrado
     return 0;
 }
